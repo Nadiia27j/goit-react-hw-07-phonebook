@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { Label, Input, Button } from './ContactForm.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact, getContacts } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 import { nanoid } from '@reduxjs/toolkit';
+import { Toaster, toast } from 'react-hot-toast';
+
 
 export default function ContactForm() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
   
-    const contacts = useSelector(getContacts);
+    const contacts = useSelector(selectContacts);
     const dispatch = useDispatch();
   
     const onChangeInput = e => {
@@ -42,7 +45,7 @@ export default function ContactForm() {
       );
   
       checkContact
-        ? alert(`${name} is  already in contacts.`)
+        ? toast(`${name} is  already in contacts.`)
         : dispatch(addContact(contact));
       reset();
     };
@@ -79,7 +82,7 @@ export default function ContactForm() {
             onChange={onChangeInput}
           />
         </Label>
-  
+        <Toaster position="top-center" reverseOrder={false} />
         <Button type="submit">Add contact</Button>
       </form>
     );
