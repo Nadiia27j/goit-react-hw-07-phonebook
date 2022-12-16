@@ -8,6 +8,8 @@ export const Item = styled.li`
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  display: flex;
 `;
 
 export const ButtonDelete = styled.button`
@@ -16,3 +18,4 @@ export const ButtonDelete = styled.button`
     background-color: gray;
   }
 `;
+

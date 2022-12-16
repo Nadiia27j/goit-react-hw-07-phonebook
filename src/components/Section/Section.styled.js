@@ -8,6 +8,5 @@ export const Title = styled.h1`
 `;
 
 export const BookSection = styled.section`
-  width: 350px;
   padding: 20px;
 `;

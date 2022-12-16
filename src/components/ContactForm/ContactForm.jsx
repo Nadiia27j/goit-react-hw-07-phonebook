@@ -9,7 +9,7 @@ import { Toaster, toast } from 'react-hot-toast';
 
 export default function ContactForm() {
     const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
+    const [phone, setPhone] = useState('');
   
     const contacts = useSelector(selectContacts);
     const dispatch = useDispatch();
@@ -21,8 +21,8 @@ export default function ContactForm() {
         case 'name':
           setName(value);
           break;
-        case 'number':
-          setNumber(value);
+        case 'phone':
+          setPhone(value);
           break;
   
         default:
@@ -36,7 +36,7 @@ export default function ContactForm() {
          
       const contact = {
         name,
-        number,
+        phone,
         id: nanoid(),
       };
   
@@ -52,7 +52,7 @@ export default function ContactForm() {
   
     const reset = () => {
       setName('');
-      setNumber('');
+      setPhone('');
     };
   
     return (
@@ -74,11 +74,11 @@ export default function ContactForm() {
           Number
           <Input
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            value={number}
+            value={phone}
             onChange={onChangeInput}
           />
         </Label>

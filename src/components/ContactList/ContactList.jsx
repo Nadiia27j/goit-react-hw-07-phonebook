@@ -9,10 +9,10 @@ export default function ContactList() {
 
   return (
     <List>
-      {contacts.map(({ name, number, id }) => (
+      {contacts.map(({ name, phone, id }) => (
         <Item key={id}>
           <span>
-            {name}: {number}
+            {name}: {phone}
           </span>
           <ButtonDelete
             type="button"
